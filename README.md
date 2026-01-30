@@ -60,14 +60,6 @@ Run every 5 minutes:
   >> ~/.clawdbot/radio-copilot/orchestrator.log 2>&1
 ```
 
-## Adding capture + decode later (recommended architecture)
-
-- **Pi (USB RTL-SDR):** raw capture appliance (reliable)
-- **Jetson:** SatDump decode + thumbnails
-- **Clawdbot:** orchestration + WhatsApp summaries
-
-Once you share Pi/Jetson hosts + commands, enable per-satellite `capture.enabled` and `decode.enabled`.
-
 ## License
 
 MIT
