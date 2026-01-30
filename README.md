@@ -90,11 +90,6 @@ Why this split:
 - capture during a pass is timing-sensitive → keep it simple and robust on the Pi
 - decoding can be retried/queued → run it on the Jetson where you have headroom
 
-Once Pi + Jetson hosts and SatDump commands are configured, we’ll enable this by:
-- adding per-satellite capture templates (`capture.enabled=true`)
-- adding per-satellite SatDump decode templates (`decode.enabled=true`)
-- attaching the “best image” to WhatsApp after decode
-
 ## License
 
 MIT
