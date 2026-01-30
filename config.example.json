@@ -11,11 +11,39 @@
   },
   "satellites": [
     {
-      "name": "NOAA 19",
+      "name": "NOAA 15 (APT)",
+      "norad": 25338,
+      "minElevationDeg": 20,
+      "capture": { "enabled": false, "command": "echo TODO capture NOAA15", "timeoutSeconds": 900 },
+      "decode": { "enabled": false, "command": "echo TODO decode NOAA15", "timeoutSeconds": 1800 }
+    },
+    {
+      "name": "NOAA 18 (APT)",
+      "norad": 28654,
+      "minElevationDeg": 20,
+      "capture": { "enabled": false, "command": "echo TODO capture NOAA18", "timeoutSeconds": 900 },
+      "decode": { "enabled": false, "command": "echo TODO decode NOAA18", "timeoutSeconds": 1800 }
+    },
+    {
+      "name": "NOAA 19 (APT)",
       "norad": 33591,
       "minElevationDeg": 20,
-      "capture": { "enabled": false, "command": "echo TODO capture", "timeoutSeconds": 900 },
-      "decode": { "enabled": false, "command": "echo TODO decode", "timeoutSeconds": 1800 }
+      "capture": { "enabled": false, "command": "echo TODO capture NOAA19", "timeoutSeconds": 900 },
+      "decode": { "enabled": false, "command": "echo TODO decode NOAA19", "timeoutSeconds": 1800 }
+    },
+    {
+      "name": "METEOR-M2 (3K) (LRPT)",
+      "norad": 57166,
+      "minElevationDeg": 20,
+      "capture": { "enabled": false, "command": "echo TODO capture METEOR LRPT", "timeoutSeconds": 1200 },
+      "decode": { "enabled": false, "command": "echo TODO decode METEOR LRPT", "timeoutSeconds": 1800 }
+    },
+    {
+      "name": "ISS (SSTV when active)",
+      "norad": 25544,
+      "minElevationDeg": 20,
+      "capture": { "enabled": false, "command": "echo TODO capture ISS SSTV", "timeoutSeconds": 900 },
+      "decode": { "enabled": false, "command": "echo TODO decode ISS SSTV", "timeoutSeconds": 900 }
     }
   ],
   "storage": {
