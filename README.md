@@ -64,6 +64,37 @@ Run every 5 minutes:
   >> ~/.clawdbot/radio-copilot/orchestrator.log 2>&1
 ```
 
+## SatDump Pi + Jetson architecture (planned / in development)
+
+This repo currently focuses on **pass prediction + orchestration + alerts**.
+
+The end-to-end SDR capture/decode pipeline (Pi capture + Jetson SatDump decode) is **still in planning and development**.
+
+Target architecture (Option B: capture first, decode after):
+
+- **Raspberry Pi (USB RTL‑SDR dongle)**
+  - role: capture appliance
+  - job: record raw IQ (or baseband/audio depending on mode) during the pass window
+  - output: time-bounded capture files + a small status/metadata file per pass
+
+- **Jetson (or any Linux box with enough CPU/GPU)**
+  - role: decode worker
+  - job: run **SatDump** to decode NOAA APT / METEOR LRPT (and later ISS SSTV workflows)
+  - output: decoded images/products + a preview thumbnail
+
+- **Clawdbot/Moltbot host**
+  - role: orchestrator
+  - job: predict passes, schedule jobs, trigger remote capture/decode via SSH, and send WhatsApp summaries
+
+Why this split:
+- capture during a pass is timing-sensitive → keep it simple and robust on the Pi
+- decoding can be retried/queued → run it on the Jetson where you have headroom
+
+Once Pi + Jetson hosts and SatDump commands are configured, we’ll enable this by:
+- adding per-satellite capture templates (`capture.enabled=true`)
+- adding per-satellite SatDump decode templates (`decode.enabled=true`)
+- attaching the “best image” to WhatsApp after decode
+
 ## License
 
 MIT
